@@ -18,7 +18,7 @@ public class ImageSearchResultService {
         if(!redisService.isValuePresent(query)) {
             var result = imageSearchResultAdapter.imageSearchResult(query);
             redisService.setValue(query, result);
-            System.out.println("from client");
+            System.out.println("I am changing this file");
             return (ImageResponse)result;
         }
         else{
