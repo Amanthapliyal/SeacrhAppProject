@@ -17,7 +17,7 @@ public class ImageSearchResultService {
     public ImageResponse getImageSearchResult(String query) throws IOException {
         if(!redisService.isValuePresent(query)) {
             var result = imageSearchResultAdapter.imageSearchResult(query);
-            redisService.setValue(query, result);
+          //  redisService.setValue(query, result);
             System.out.println("from client");
             return (ImageResponse)result;
         }
