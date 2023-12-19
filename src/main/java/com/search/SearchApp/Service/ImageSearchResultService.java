@@ -17,8 +17,10 @@ public class ImageSearchResultService {
     public ImageResponse getImageSearchResult(String query) throws IOException {
         if(!redisService.isValuePresent(query)) {
             var result = imageSearchResultAdapter.imageSearchResult(query);
+            System.out.println("Nevneets change");
             redisService.setValue(query, result);
             System.out.println("I am changing this file");
+
             return (ImageResponse)result;
         }
         else{
